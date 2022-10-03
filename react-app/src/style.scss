@@ -1,0 +1,54 @@
+@import "reset.scss";
+
+/* color fot light theme */
+$light-body: white;
+$light-header: #A9AFD3;
+$light-link: #12173A;
+
+/* color for dark theme */
+$dark-body:	#12173A;
+$dark-header: #1A1F3C;
+$dark-link: #818CD3;
+
+.App {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.App-header {
+  height: 60px;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a, h1 {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 22px;
+    font-weight: bolder;
+  }
+  .headrer-left, .headrer-right {
+    display: flex;
+    align-items: center;
+  }
+}
+.light {
+  background-color: $light-body;
+  .App-header{
+    background-color: $light-header;
+    a, h1 {
+      color: $light-link;
+    }
+  }
+}
+.dark {
+  background-color: $dark-body;
+  .App-header{
+    background-color: $dark-header;
+    a, h1 {
+      color: $dark-link;
+    }
+  }
+}
