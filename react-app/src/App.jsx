@@ -11,6 +11,8 @@ import { Screener } from './pages/Screener';
 import { Help } from './pages/Help';
 import { NotFoundPage } from './pages/NotFoundPage';
 
+import { Settings } from './components/modal/Settings'
+
 function App() {
   const BaseStyle ="App"
   const [colorTheme, setColorTheme] = useState('light')
@@ -36,6 +38,7 @@ function App() {
           </button>
         </div>
       </header>
+      <Settings/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/screener" element={<Screener />} />
