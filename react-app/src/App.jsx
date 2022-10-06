@@ -41,7 +41,7 @@ function App() {
       <Settings/>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/screener" element={<Screener />} />
+        <Route path="/screener" element={<Screener colorTheme={colorTheme} />} />
         <Route path="/help" element={<Help />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

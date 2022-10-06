@@ -1,14 +1,24 @@
 @import "reset.scss";
 
-/* color fot light theme */
-$light-body: white;
-$light-header: #A9AFD3;
-$light-link: #12173A;
 
-/* color for dark theme */
-$dark-body:	#12173A;
-$dark-header: #1A1F3C;
-$dark-link: #818CD3;
+/* color */
+$blue_1: #191F43;
+$blue_2: #1A1F3C;
+$blue_3: #12173A;
+$blue_4: #818CD3;
+$blue_5: #A9AFD3;
+
+$violent_1: #261742;
+$violent_2: #25193C;
+$violent_3: #1F103A;
+$violent_4: #9C7ED3;
+$violent_5: #B7A8D3;
+
+$sea_blue_1: #13303D;
+$sea_blue_2: #152D38;
+$sea_blue_3: #0D2935;
+$sea_blue_4: #78B6D1;
+$sea_blue_5: #A4C4D1;
 
 .App {
   position: absolute;
@@ -34,21 +44,39 @@ $dark-link: #818CD3;
     align-items: center;
   }
 }
-.light {
-  background-color: $light-body;
-  .App-header{
-    background-color: $light-header;
-    a, h1 {
-      color: $light-link;
+.page {
+  padding: 5px;
+}
+.dprice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .dprice__coins {
+    .dprice__long, .dprice__short {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
     }
   }
 }
-.dark {
-  background-color: $dark-body;
+/* light color's theme */
+.light {
+  background-color: white;
   .App-header{
-    background-color: $dark-header;
+    background-color: $blue_4;
     a, h1 {
-      color: $dark-link;
+      color: $blue_3;
+    }
+  }
+}
+
+/* dark color's theme */
+.dark {
+  background-color: $blue_2;
+  .App-header{
+    background-color: $blue_3;
+    a, h1 {
+      color: $blue_4;
     }
   }
 }

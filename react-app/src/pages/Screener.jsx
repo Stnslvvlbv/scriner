@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-const Screener = function() {
+import { DPrice } from '../components/block/DPrice'
+
+const Screener = function(props) {
 
   return(
-    <div>
+    <div className="page">
       <h1>Screener</h1>
+      <p>{props.colorTheme}</p>
+       < DPrice />
     </div>
   )
 }
