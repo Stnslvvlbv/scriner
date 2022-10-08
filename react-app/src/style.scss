@@ -1,7 +1,7 @@
 @import "reset.scss";
 
 
-/* color */
+/* color ffon*/
 $blue_1: #191F43;
 $blue_2: #1A1F3C;
 $blue_3: #12173A;
@@ -19,6 +19,19 @@ $sea_blue_2: #152D38;
 $sea_blue_3: #0D2935;
 $sea_blue_4: #78B6D1;
 $sea_blue_5: #A4C4D1;
+
+/*color signal*/
+$green_signal1: #2DD700;
+$green_signal2: #41A128;
+$green_signal3: #1D8B00;
+$green_signal4: #5FEB3B;
+$green_signal5: #85EB6A;
+
+$red_signal1: #FD0006;
+$red_signal2: #D32327;
+$red_signal3: #C20005;
+$red_signal4: #FD2A2F;
+$red_signal5: #FD4B50;
 
 .App {
   position: absolute;
@@ -48,14 +61,35 @@ $sea_blue_5: #A4C4D1;
   padding: 5px;
 }
 .dprice {
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .price__buttom {
+    h1 {
+      text-align: center;
+      padding: 5px;
+      font-size: 26px;
+    }
+    height: 80px;
+    width: 200px;
+    border-radius: 10px;
+  }
   .dprice__coins {
+    width: calc(100% - 205px);
+    border-radius: 10px;
     .dprice__long, .dprice__short {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      position: relative;
+    }
+    .dprice__long-element, .dprice__short-element {
+      text-align: center;
+      width: 9%;
+      height: 36px;
+      text-transform: uppercase;
+      padding: 2px;
     }
   }
 }
@@ -68,6 +102,22 @@ $sea_blue_5: #A4C4D1;
       color: $blue_3;
     }
   }
+  .dprice {
+    background-color: $violent_5;
+    .price__buttom {
+      background-color: $violent_4;
+      color: $violent_1;
+    }
+    .dprice__long {
+      background: linear-gradient(to right, $green_signal4, $green_signal5);
+    }
+    .dprice__short {
+      background: linear-gradient(to right, $red_signal4, $red_signal5);
+    }
+    .dprice__long-element, .dprice__short-element {
+      border: solid 1px white;
+    }
+  }
 }
 
 /* dark color's theme */
@@ -77,6 +127,22 @@ $sea_blue_5: #A4C4D1;
     background-color: $blue_3;
     a, h1 {
       color: $blue_4;
+    }
+  }
+  .dprice {
+    background-color: $violent_1;
+    .price__buttom {
+      background-color: $violent_3;
+      color: $violent_4;
+    }
+    .dprice__long {
+      background: linear-gradient(to right, $green_signal3, $green_signal1);
+    }
+    .dprice__short {
+      background: linear-gradient(to right, $red_signal3, $red_signal1);
+    }
+    .dprice__long-element, .dprice__short-element {
+      border: solid 1px $blue_2;
     }
   }
 }
