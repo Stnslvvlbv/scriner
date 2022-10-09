@@ -1,7 +1,24 @@
 import React from 'react';
 
+import DailyActive from 'D:/pr/scriner/react-app/src/API/DailyActive'
+
 const DPrice = () => {
   const style = ["dprice"]
+
+  const priceData = new Promise(function(resolve, reject) {
+    console.log('conection');
+    const response = DailyActive;
+    resolve(response);
+  })
+
+  priceData.then((data) => {
+    console.log(data)
+  })
+
+  // let ArayResponse = new Array();
+
+  // console.log(response);
+  // alert(response);
 
   return(
     <div className="dprice">
