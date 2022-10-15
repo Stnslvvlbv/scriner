@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import TraideSessions from '../components/TraideSessions';
 
 const HomePage = () => {
 
   return(
     <div>
-      <h1>home home</h1>
+      <TraideSessions />
     </div>
   );
 };

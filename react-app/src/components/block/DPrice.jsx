@@ -1,19 +1,10 @@
 import React from 'react';
+import {DPrice__long} from './DPrice__long'
 
-import DailyActive from 'D:/pr/scriner/react-app/src/API/DailyActive'
-
-const DPrice = () => {
+const DPrice = (props) => {
   const style = ["dprice"]
+  console.log(props.dailyFutures);
 
-  const priceData = new Promise(function(resolve, reject) {
-    console.log('conection');
-    const response = DailyActive;
-    resolve(response);
-  })
-
-  priceData.then((data) => {
-    console.log(data)
-  })
 
   // let ArayResponse = new Array();
 
@@ -28,50 +19,15 @@ const DPrice = () => {
       </div>
       <div className="dprice__coins">
         <div className="dprice__long">
-          <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-          </div>
-          <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-          </div>
-          <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-          </div>
-          <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-          </div>
-          <div className="dprice__long-element">
-          <h1>btcusdt</h1>
-          <h1>21 000</h1>
-          </div>
-          <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-            </div>
-            <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-            </div>
-            <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-            </div>
-            <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-            </div>
-            <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-            </div>
-            <div className="dprice__long-element">
-            <h1>btcusdt</h1>
-            <h1>21 000</h1>
-            </div>
+        {props.dailyFutures.map(coin =>
+          <DPrice__long key = {coin.symbol}
+            symbol = {coin.symbol}
+            lastPrice = {coin.lastPrice}
+            priceChangePercent = {coin.priceChangePercent}
+           />
+
+        )}
+
         </div>
         <div className="dprice__short">
           <div className="dprice__short-element">

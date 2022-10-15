@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {
   Routes,
   Route,
-  Link
+  NavLink
 } from 'react-router-dom';
 
 
@@ -19,18 +19,17 @@ function App() {
   const ChangeTheme = () => {
     colorTheme == 'light' ? setColorTheme('dark') : setColorTheme('light')
   }
+  const [settingsModal, setSettingsModal] = useState('show')
   return (
     <div className={[BaseStyle, colorTheme].join(" ")}>
       <header className="App-header">
         <div className="header-ridht">
-          <Link to="/">HOME</Link>
-          <Link to="/screener">Screener</Link>
-          <Link to="/help">Help</Link>
+          <NavLink to="/screener">Screener</NavLink>
+          <NavLink to="/help">Help</NavLink>
         </div>
         <div className="headrer-left">
-          <h1>
-          Settings
-          </h1>
+
+          <NavLink to="/settings">Settings</NavLink>
           <button onClick={ChangeTheme}>
             <h1>
               {colorTheme=="light"?"светлая":"темная"}
@@ -38,11 +37,11 @@ function App() {
           </button>
         </div>
       </header>
-      <Settings/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/screener" element={<Screener />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

@@ -1,13 +1,19 @@
 import React from 'react'
 
 const Conect = () => {
-  const Binance = require('node-binance-api');
-  const binance = new Binance().options({
-    APIKEY: "",
-    APISECRET: "",
-  });
+const { Spot } = require('@binance/connector')
 
-  return(binance);
+const apiKey = ''
+const apiSecret = ''
+const client = new Spot(apiKey, apiSecret)
+
+client.account({ recvWindow: 2000 }).then(response => client.logger.log(response.data))
+
+  return(
+    <div>
+      'binance'
+    </div>
+    );
 }
 
-export { Conect }
+export default Conect;

@@ -52,6 +52,7 @@ $red_signal5: #FD4B50;
     font-size: 22px;
     font-weight: bolder;
   }
+  a {cursor: pointer;}
   .headrer-left, .headrer-right {
     display: flex;
     align-items: center;
@@ -93,14 +94,23 @@ $red_signal5: #FD4B50;
     }
   }
 }
+/* traiging sessions */
+.TraidSess {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 30px;
+}
+/* style modal */
+
 /* light color's theme */
 .light {
   background-color: white;
-  .App-header{
+  header{
     background-color: $blue_4;
     a, h1 {
       color: $blue_3;
     }
+    .active {color: $violent_3;}
   }
   .dprice {
     background-color: $violent_5;
@@ -123,11 +133,15 @@ $red_signal5: #FD4B50;
 /* dark color's theme */
 .dark {
   background-color: $blue_2;
-  .App-header{
+  header{
     background-color: $blue_3;
     a, h1 {
+      color: $blue_5;
+    }
+    .active {
       color: $blue_4;
     }
+
   }
   .dprice {
     background-color: $violent_1;
@@ -145,4 +159,16 @@ $red_signal5: #FD4B50;
       border: solid 1px $blue_2;
     }
   }
+}
+.TS__green {
+  background-color: $green_signal3;
+}
+.TS__yellow {
+  background-color: yellow;
+}
+.TS__blue {
+  background-color: blue;
+}
+.TS__red {
+  background-color: red;
 }

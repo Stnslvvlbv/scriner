@@ -1,10 +1,18 @@
 import React from 'react'
 
-const Settings = () => {
+const Settings = (props) => {
 
+  const StyleOwerlow = ["Owerlow", "close-modal"];
+  StyleOwerlow.push(props.view);
+  const StyleModal = ["Modal"]
   return(
-    <div>
-    <h1>Настройки</h1>
+    <div className={StyleOwerlow.join(' ')}>
+      <div className={StyleModal.join(' ')}>
+        <header>
+          <h1>Настройки</h1>
+        </header>
+      <p>{ props.view }</p>
+      </div>
     </div>
   )
 }
