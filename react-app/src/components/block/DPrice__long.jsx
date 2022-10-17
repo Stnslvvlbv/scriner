@@ -5,7 +5,7 @@ const DPrice__long = (props) => {
   return (
     <div className="dprice__long-element">
       <h1>{props.symbol}</h1>
-      <p>{props.lastPrice} {props.priceChangePercent}%</p>
+      <h1>{props.lastPrice} {props.priceChangePercent}%</h1>
     </div>
   )
 }
