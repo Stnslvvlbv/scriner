@@ -87,7 +87,7 @@ $red_signal5: #FD4B50;
     }
     .dprice__long-element, .dprice__short-element {
       text-align: center;
-      width: 9%;
+      width: calc(10% - 2px);
       height: 36px;
       text-transform: uppercase;
       padding: 2px;

@@ -37,55 +37,16 @@ const DPrice = (props) => {
             lastPrice = {coin.lastPrice}
             priceChangePercent = {coin.priceChangePercent}
            />
-
-        )}
-
+         )}
         </div>
         <div className="dprice__short">
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
-          <div className="dprice__short-element">
-            <h1>ethusdt</h1>
-            <h1>1 500</h1>
-          </div>
+        {dailyShort.map(coin =>
+          <DPrice__long key = {coin.symbol}
+            symbol = {coin.symbol}
+            lastPrice = {coin.lastPrice}
+            priceChangePercent = {coin.priceChangePercent}
+           />
+         )}
         </div>
       </div>
     </div>
