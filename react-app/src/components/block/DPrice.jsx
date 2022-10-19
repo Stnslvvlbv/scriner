@@ -9,14 +9,30 @@ const DPrice = (props) => {
   let dailyLong = [];
   let dailyShort = [];
   const sortCoin = (Sort) => {
+    const DailyActiveFilt = [];
     const DailyActive = JSON.parse(JSON.stringify(props.dailyFutures))
     DailyActive.forEach(item => {
       item[Sort] = Number(item[Sort]);
+      item.symbol = item.symbol.slice(0, -4);
     })
     DailyActive.sort((a, b) => a[Sort] > b[Sort] ? 1 : -1);
     console.log('sorted');
-    dailyShort = DailyActive.slice(0, amountCoins);
-    dailyLong = DailyActive.slice(DailyActive.length - amountCoins, DailyActive.length).reverse()
+    const SymbolCleaner = [];
+
+    function contains(arr, elem) {
+      if (arr.length > 0) {
+        if  (arr[arr.length-1] === elem) {return true;} else {return false;}
+      }
+      return false;
+    }
+    DailyActive.forEach((item) => {
+      if (!contains(SymbolCleaner, item.symbol)) {
+        SymbolCleaner.push(item.symbol);
+        DailyActiveFilt.push(item);
+      }
+    });
+    dailyShort = DailyActiveFilt.slice(0, amountCoins);
+    dailyLong = DailyActiveFilt.slice(DailyActiveFilt.length - amountCoins, DailyActiveFilt.length).reverse()
     // dailyLong.sort((a, b) => a[Sort] < b[Sort] ? 1 : -1);
   };
   sortCoin(Sort);
