@@ -16,8 +16,8 @@ const DPrice = (props) => {
     DailyActive.sort((a, b) => a[Sort] > b[Sort] ? 1 : -1);
     console.log('sorted');
     dailyShort = DailyActive.slice(0, amountCoins);
-    dailyLong = DailyActive.slice(DailyActive.length - amountCoins, DailyActive.length)
-    dailyLong.sort((a, b) => a[Sort] < b[Sort] ? 1 : -1);
+    dailyLong = DailyActive.slice(DailyActive.length - amountCoins, DailyActive.length).reverse()
+    // dailyLong.sort((a, b) => a[Sort] < b[Sort] ? 1 : -1);
   };
   sortCoin(Sort);
   console.log(dailyLong);
