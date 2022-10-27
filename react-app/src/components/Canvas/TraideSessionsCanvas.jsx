@@ -4,52 +4,46 @@ import { useRef, useEffect, useState } from 'react';
 
 const TraideSessionsCanvas = () => {
 
-  const canvasRef = useRef(null);
-  const contextRef = useRef(null);
+  const canvasRef = useRef();
+  const ctx = useRef();
 
   const [isDrawing, setIsDrawing] = useState();
 
-  useEffect(() =>{
-    const canvas =canvasRef.current;
-    canvas.width = 500;
-    canvas.height = 500;
 
-    const context = canvas.getcontext("2d");
-    context.lineCap = "round";
-    context.strokeStile = "black";
-    context.lineWidth = 5;
-    contextRef.current = context;
+  const draw = (x, y) => {
+    ctx.beginPath();
+    ctx.current.strokStyle = 'black';
+    ctx.current.lineWidth = 10;
+    ctx.current.lineJoin = 'round';
+    ctx.current.moveTo(lastPosition.x, lastPosition.y)
+    ctx.current.lineTo(x, y);
+    ctx.current.closePath();
+    ctx.current.stroke();
+  }
+
+
+  useEffect(() =>{
+    console.log(canvasRef);
+    if (canvasRef.current) {
+      ctx.current = canvasRef.current.getContext('2d');
+
+    }
   }, []);
 
   const startDrawing = (nativeEvent) => {
-    const {offsetX, offsetY} = nativeEvent;
-    contextRef.current.beginPath();
-    contextRef.current.moveTo(offsetX, offsetY);
-    contextRef.current.lineTo(offsetX, offsetY);
-    contextRef.current.stroke();
-    setIsDrawing(true);
-    nativeEvent.preventDefault();
-  }
 
-  const draw = (nativeEvent) => {
-    if (!isDrawing) {
-      return;
-    }
-    const {offsetX, offsetY} = nativeEvent;
-    contextRef.current.lineTo(offsetX, offsetY);
-    contextRef.current.stroke();
-    nativeEvent.preventDefault();
   }
 
   const stopDrawing = (nativeEvent) => {
-    contextRef.current.closePath();
-    setIsDrawing(false);
 
   }
 
   return (
     <canvas className='TraideSessionsCanvas'
       ref={canvasRef}
+      onMouseDown={startDrawing}
+      onMouseMove={draw}
+      onMouseUp={stopDrawing}
     >
       dfthjhlk
     </canvas>
