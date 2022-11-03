@@ -31,14 +31,14 @@ const TraideSessionsCanvas = () => {
     if (canvasRef.current) {
       ctx.current = canvasRef.current.getContext('2d');
       const startX= canvasRef.current.getBoundingClientRect();
-      console.log(canvasRef.current.offsetTop)
+
       TraideSessions.forEach((item, i) => {
         ctx.current.beginPath()
         ctx.current.strokeStyle = 'gray';
         ctx.current.lineWidth = 1;
         ctx.current.lineJoin = 'round';
         ctx.current.moveTo(0, i*ROW_HEIGHT+ROW_HEIGHT);
-        ctx.current.lineTo(200, i*ROW_HEIGHT+ROW_HEIGHT);
+        ctx.current.lineTo(canvWidth, i*ROW_HEIGHT+ROW_HEIGHT);
         ctx.current.moveTo(200, i*ROW_HEIGHT);
         ctx.current.lineTo(200, i*ROW_HEIGHT+ROW_HEIGHT);
 
@@ -51,7 +51,6 @@ const TraideSessionsCanvas = () => {
         ctx.current.font = '14px Georgia';
         ctx.current.fillText(item.name, 10, i*ROW_HEIGHT+19);
 
-        console.log(item.name, i+1)
         item.time.forEach((hour, h, arr) =>{
           ctx.current.beginPath()
           ctx.current.strokeStyle = 'gray';
@@ -66,8 +65,6 @@ const TraideSessionsCanvas = () => {
           ctx.current.fillStyle = item.color;
           ctx.current.fill();
 
-
-
           ctx.current.stroke();
           ctx.current.closePath();
           if (i == 0) {
@@ -76,20 +73,13 @@ const TraideSessionsCanvas = () => {
             ctx.current.fillText(hour, 200+hour*ROW_HEIGHT+5, i*ROW_HEIGHT+19)
           }
         });
-
-        console.log(item.name, item.time.length-1)
       });
-
-
-
     }
   }, []);
 
   const draw = useCallback((x, y) => {
 
     if (mouseDown) {
-
-
         ctx.current.beginPath();
         ctx.current.strokeStyle = 'red';
         ctx.current.lineWidth = 10;
@@ -99,7 +89,6 @@ const TraideSessionsCanvas = () => {
         ctx.current.closePath();
         ctx.current.stroke();
         setPosition({x, y});
-
     }
   }, [lastPosition, mouseDown, setPosition])
 

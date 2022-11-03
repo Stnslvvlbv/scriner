@@ -5,22 +5,23 @@ import {
   NavLink
 } from 'react-router-dom';
 
+import { ThemeComtext } from './context'
 
 import { HomePage } from './pages/HomePage';
 import { Screener } from './pages/Screener';
 import { Help } from './pages/Help';
 import { NotFoundPage } from './pages/NotFoundPage';
-
-import { Settings } from './components/modal/Settings'
+import { Settings } from './pages/Settings';
 
 function App() {
   const BaseStyle ="App"
   const [colorTheme, setColorTheme] = useState('light')
-  const ChangeTheme = () => {
-    colorTheme == 'light' ? setColorTheme('dark') : setColorTheme('light')
-  }
-  const [settingsModal, setSettingsModal] = useState('show')
+
   return (
+    <ThemeComtext.Provider value ={{
+      colorTheme,
+      setColorTheme,
+    }}>
     <div className={[BaseStyle, colorTheme].join(" ")}>
       <header className="App-header">
         <div className="header-ridht">
@@ -28,13 +29,7 @@ function App() {
           <NavLink to="/help">Help</NavLink>
         </div>
         <div className="headrer-left">
-
           <NavLink to="/settings">Settings</NavLink>
-          <button onClick={ChangeTheme}>
-            <h1>
-              {colorTheme=="light"?"светлая":"темная"}
-            </h1>
-          </button>
         </div>
       </header>
       <Routes>
@@ -45,6 +40,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
+    </ThemeComtext.Provider>
   );
 }
 

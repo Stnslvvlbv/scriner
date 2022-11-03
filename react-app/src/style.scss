@@ -52,12 +52,49 @@ $red_signal5: #FD4B50;
     font-size: 22px;
     font-weight: bolder;
   }
+
   a {cursor: pointer;}
   .headrer-left, .headrer-right {
     display: flex;
     align-items: center;
   }
 }
+.header2 {
+  padding: 15px;
+  h1 {
+    font-size: 26px;
+    font-weight: bolder;
+  }
+}
+.settings {
+  background-color: $blue_5;
+  margin: 0 auto;
+  width: 280px;
+  .settingList__element {
+    border-bottom: 2px solid gray;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.switch {
+  width: 60px;
+  height: 20px;
+  background-color: $blue_4;
+  border-radius: 10px;
+  border: 2px solid $blue_3;
+  cursor: pointer;
+  .switch__button {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: white;
+
+  }
+}
+
 .page {
   padding: 5px;
 }
@@ -102,7 +139,7 @@ $red_signal5: #FD4B50;
   grid-template-rows: 30px;
 }
 .TraideSessionsCanvas {
-  
+
   margin: 10px;
   border: solid 2px blue;
 }
@@ -117,6 +154,9 @@ $red_signal5: #FD4B50;
       color: $blue_3;
     }
     .active {color: $violent_3;}
+  }
+  .header2 {
+    h1 {color: $blue_3;}
   }
   .dprice {
     background-color: $violent_5;
