@@ -1,16 +1,16 @@
 import React from 'react';
+import {useState, } from 'react';
 
 export const ButtonSwitch = (props) => {
 
-  const styleSwitch = ["switch", ]
-  const Active = () => {
-    props.Function()
-    console.log("был клик")
+  const [styleSwitch, setStyleSwitch] = useState(['switch',]);
+  const ChangeActive = () => {
+    props.setChange((prev) => !prev)
   }
+  console.log(props.flag)
   return (
-    <div className={styleSwitch.join(' ')} onClick={Active}>
+    <div className={styleSwitch.join(' ')} onClick={ChangeActive}>
       <div className="switch__button"></div>
     </div>
-
   )
 }

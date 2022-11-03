@@ -15,14 +15,14 @@ import { Settings } from './pages/Settings';
 
 function App() {
   const BaseStyle ="App"
-  const [colorTheme, setColorTheme] = useState('light')
+  const [darkTheme, setDarkTheme] = useState(false);
 
   return (
     <ThemeComtext.Provider value ={{
-      colorTheme,
-      setColorTheme,
+      darkTheme,
+      setDarkTheme,
     }}>
-    <div className={[BaseStyle, colorTheme].join(" ")}>
+    <div className={[BaseStyle, darkTheme?"dark":"light",].join(" ")}>
       <header className="App-header">
         <div className="header-ridht">
           <NavLink to="/screener">Screener</NavLink>

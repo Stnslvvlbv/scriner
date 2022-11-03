@@ -6,10 +6,10 @@ import { ThemeComtext } from '../context';
 import { ButtonSwitch } from '../components/UI/ButtonSwitch'
 
 const Settings = (props) => {
-  const {colorTheme, setColorTheme} = useContext(ThemeComtext);
+  const {darkTheme, setDarkTheme} = useContext(ThemeComtext);
 
   const ChangeTheme = () => {
-    colorTheme == 'light' ? setColorTheme('dark') : setColorTheme('light')
+    setDarkTheme((prev) => !prev)
   }
   return(
     <div className='settings'>
@@ -22,7 +22,10 @@ const Settings = (props) => {
             <h1>Dark theme</h1>
           </div>
           <div className="SettingList__valueElement">
-            <ButtonSwitch Function={ChangeTheme}/>
+            <ButtonSwitch setChange={setDarkTheme}
+              flag={darkTheme}
+              key={darkTheme}
+            />
 
           </div>
         </div>
