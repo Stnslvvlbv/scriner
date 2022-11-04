@@ -3,11 +3,12 @@ import {useState, } from 'react';
 
 export const ButtonSwitch = (props) => {
 
-  const [styleSwitch, setStyleSwitch] = useState(['switch',]);
+  let styleSwitch = []
   const ChangeActive = () => {
     props.setChange((prev) => !prev)
   }
-  console.log(props.flag)
+
+  props.flag ? styleSwitch=['switch', 'isActive'] :  styleSwitch=['switch',];
   return (
     <div className={styleSwitch.join(' ')} onClick={ChangeActive}>
       <div className="switch__button"></div>

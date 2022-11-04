@@ -86,12 +86,19 @@ $red_signal5: #FD4B50;
   border-radius: 10px;
   border: 2px solid $blue_3;
   cursor: pointer;
+     transition-duration: 0.3s;
   .switch__button {
     width: 20px;
     height: 20px;
     border-radius: 10px;
     background-color: white;
-
+  }
+}
+.switch.isActive {
+   transition-duration: 0.3s;
+  background-color: red;
+  .switch__button {
+    margin-left: 40px
   }
 }
 
