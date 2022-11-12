@@ -1,5 +1,6 @@
 import React from 'react';
 import {useContext} from 'react';
+import Switch from '@mui/material/Switch';
 
 import { ThemeComtext } from '../context';
 
@@ -22,11 +23,10 @@ const Settings = (props) => {
             <h1>Dark theme</h1>
           </div>
           <div className="SettingList__valueElement">
-            <ButtonSwitch setChange={setDarkTheme}
-              flag={darkTheme}
-              key={darkTheme}
-            />
-
+            <Switch
+              color="secondary"
+              checked={darkTheme}
+              onChange={ChangeTheme}/>
           </div>
         </div>
       </div>
